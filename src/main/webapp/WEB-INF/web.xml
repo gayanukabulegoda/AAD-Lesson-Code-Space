@@ -3,4 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+
+    <context-param>
+        <param-name>db-class</param-name>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db-url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/Student_Management_AAD</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db-username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db-password</param-name>
+        <param-value>Ijse@1234</param-value>
+    </context-param>
+
 </web-app>
