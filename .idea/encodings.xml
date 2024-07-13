@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/1_Exact_Mapping/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/1_Exact_Mapping/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/2_ Extension_Mapping/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/2_ Extension_Mapping/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/3_ Empty_String_Mapping/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/3_ Empty_String_Mapping/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/4_Wild_Card_Mapping/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/4_Wild_Card_Mapping/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/5_ Default_Mapping/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/5_ Default_Mapping/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>
