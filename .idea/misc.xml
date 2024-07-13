@@ -5,6 +5,11 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/1_Exact_Mapping/pom.xml" />
+        <option value="$PROJECT_DIR$/2_ Extension_Mapping/pom.xml" />
+        <option value="$PROJECT_DIR$/3_ Empty_String_Mapping/pom.xml" />
+        <option value="$PROJECT_DIR$/4_Wild_Card_Mapping/pom.xml" />
+        <option value="$PROJECT_DIR$/5_ Default_Mapping/pom.xml" />
       </list>
     </option>
   </component>
