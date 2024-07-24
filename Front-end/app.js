@@ -19,23 +19,45 @@ $("#btn-submit").click(function () {
   const studentJSON = JSON.stringify(studentData);
   console.log(studentJSON);
 
-  // Introduce AJAX 
-  const http = new XMLHttpRequest(); // this object have a no.of properties mentioning the request
-  http.onreadystatechange = () => {
-    if (http.readyState == 4) {
-      if (http.status == 200) {
-        var responseTextJSON = JSON.stringify(http.responseText)
-        console.log(responseTextJSON);
-      } else {
-        console.error("Failed");
-        console.error("Status" + http.status);
-        console.error("Ready State" + http.readyState);
-      }
-    } else {
-      console.error("Ready State" + http.readyState);
-    }
+  // Introduce AJAX
+  // const http = new XMLHttpRequest(); // this object have a no.of properties mentioning the request
+  // http.onreadystatechange = () => {
+  //   if (http.readyState == 4) {
+  //     if (http.status == 200 || http.status == 200) {
+  //       var responseTextJSON = JSON.stringify(http.responseText);
+  //       console.log(responseTextJSON);
+  //     } else {
+  //       console.error("Failed");
+  //       console.error("Status" + http.status);
+  //       console.error("Ready State" + http.readyState);
+  //     }
+  //     clearFields();
+  //   } else {
+  //     console.error("Ready State" + http.readyState);
+  //   }
+  // };
+  // http.open("POST", "http://localhost:8080/app/student", true);
+  // http.setRequestHeader("Content-Type", "application/json");
+  // http.send(studentJSON);
+
+  const clearFields = () => {
+    $("#name").val("");
+    $("#email").val("");
+    $("#city").val("");
+    $("#level").val("");
   };
-  http.open("POST", "http://localhost:8080/app/student", true);
-  http.setRequestHeader("Content-Type", "application/json");
-  http.send(studentJSON);
+
+  // AJAX with jquery
+  $.ajax({
+    url: "http://localhost:8080/app/student",
+    type: "POST",
+    data: studentJSON,
+    headers: { "Content-Type": "application/json" },
+    success: (res) => {
+      console.log(JSON.stringify(res));
+    },
+    error: function (error) {
+      console.log(error);
+    },
+  });
 });
