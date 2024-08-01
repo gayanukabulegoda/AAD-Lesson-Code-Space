@@ -1,3 +1,0 @@
-00:30:57.920 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
-00:30:58.288 [RMI TCP Connection(2)-127.0.0.1] DEBUG l.i.a.g.s.controller.Student - Connection Initialized
-00:31:32.379 [http-nio-8080-exec-2] INFO  l.i.a.g.s.controller.Student - Invoke generateId()
