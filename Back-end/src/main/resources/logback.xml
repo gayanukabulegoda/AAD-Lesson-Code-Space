@@ -5,7 +5,7 @@
         </encoder>
     </appender>
     <appender name="File" class="ch.qos.logback.core.FileAppender">
-        <file>/home/gayanuka/Documents/GDSE68-Sem02/AAD/Day 05/StudentManagementSystem/app.log</file>
+        <file>/home/gayanuka/Documents/GDSE68-Sem02/AAD/Day 05/StudentManagementSystem (layered)/app.log</file>
         <append>true</append>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>

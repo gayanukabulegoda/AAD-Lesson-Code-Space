@@ -10,20 +10,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f58e050-6254-4f3d-a26f-e3e8847a8d39" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/.idea/dataSources/c559bbd4-8cb8-4a4c-aff6-7c0952504f0f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/.idea/dataSources/c559bbd4-8cb8-4a4c-aff6-7c0952504f0f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dccb4388-d61a-406f-971c-a62bcfaea45c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dccb4388-d61a-406f-971c-a62bcfaea45c/storage_v2/_src_/schema/Student_Management_AAD.7BAe-A.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/lk/ijse/aad/gdse68/studentmanagement/controller/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/main/java/lk/ijse/aad/gdse68/studentmanagement/controller/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/src/main/webapp/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/main/webapp/META-INF/context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <favorite-branches>
@@ -74,34 +84,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.StudentManagement [clean].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.241.executor": "Run",
-    "git-widget-placeholder": "lesson/Day__05/StudentManagementSystem",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.StudentManagement [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.24.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.241.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lesson/Day__05/StudentManagementSystem&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gayanuka/Documents/GDSE68-Sem02/AAD/Day 05/StudentManagementSystem (layered)&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 10.1.241" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.241" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 10.1.24" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.24" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -211,23 +226,17 @@
       <workItem from="1722136766553" duration="320000" />
       <workItem from="1722137599596" duration="62000" />
       <workItem from="1722145130335" duration="1392000" />
-      <workItem from="1722512482740" duration="1175000" />
-      <workItem from="1722514206099" duration="5419000" />
-      <workItem from="1722533068310" duration="457000" />
+      <workItem from="1722149186040" duration="5373000" />
+      <workItem from="1722156752663" duration="2172000" />
+      <workItem from="1722223170641" duration="28000" />
+      <workItem from="1722516874891" duration="4448000" />
+      <workItem from="1722524044842" duration="1077000" />
+      <workItem from="1722535665891" duration="2026000" />
+      <workItem from="1722538211947" duration="494000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.sql.SQLException" package="java.sql" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
