@@ -1,0 +1,40 @@
+10:50:30.254 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+10:52:58.391 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+10:55:43.351 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:05:35.684 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:07:31.047 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:07:41.129 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:09:07.531 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:09:25.865 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:10:51.786 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:13:03.287 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:14:29.506 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:18:22.202 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:19:58.607 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:21:33.610 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:23:59.763 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:25:45.279 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:27:27.372 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+11:58:38.255 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+12:02:50.477 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+13:44:26.154 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+13:45:22.192 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+17:12:10.285 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+19:54:36.436 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:00:06.432 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:02:26.335 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:04:52.382 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:07:04.456 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:07:04.870 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Connection Initialized
+20:07:41.718 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:07:42.066 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Connection Initialized
+20:08:15.026 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:08:15.368 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Connection Initialized
+20:08:33.122 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:08:33.531 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Connection Initialized
+20:09:20.104 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+20:09:20.526 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Connection Initialized
+22:57:36.685 [RMI TCP Connection(4)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+22:57:37.075 [RMI TCP Connection(4)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Connection Initialized
+23:11:47.295 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Init Method Invoked
+23:11:48.028 [RMI TCP Connection(2)-127.0.0.1] INFO  l.i.a.g.s.controller.Student - Connection Initialized
