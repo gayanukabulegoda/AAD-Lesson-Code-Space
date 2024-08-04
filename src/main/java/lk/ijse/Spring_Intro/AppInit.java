@@ -1,12 +1,13 @@
 package lk.ijse.Spring_Intro;
 
+import lk.ijse.Spring_Intro.config.Config;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class Demo {
+public class AppInit {
     public static void main(String[] args) {
         var ctx = new AnnotationConfigApplicationContext();
-        ctx.register(MyConfig.class);
+        ctx.register(Config.class);
         ctx.refresh();
-        ctx.close();
+        ctx.registerShutdownHook(); // in-order to shut-down gracefully except using .close()
     }
 }
