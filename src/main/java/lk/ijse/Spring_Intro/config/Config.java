@@ -1,17 +1,12 @@
 package lk.ijse.Spring_Intro.config;
 
-import lk.ijse.Spring_Intro.beans.Order;
-import org.springframework.context.annotation.Bean;
+import lk.ijse.Spring_Intro.beans.Test;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "lk.ijse.Spring_Intro")
+// @ComponentScan(basePackageClasses = {Customer.class})
+@ComponentScan(basePackageClasses = {Test.class})
 public class Config {
     // if configurations there, they need to place here
-
-    @Bean
-    public Order order() {
-        return new Order();
-    }
 }
