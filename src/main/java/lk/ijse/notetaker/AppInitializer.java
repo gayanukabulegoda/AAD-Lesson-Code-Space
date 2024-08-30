@@ -1,5 +1,6 @@
 package lk.ijse.notetaker;
 
+import lk.ijse.notetaker.config.WebAppConfig;
 import lk.ijse.notetaker.config.WebAppRootConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -10,7 +11,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     }
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {WebAppRootConfig.class};
+        return new Class[] {WebAppConfig.class};
     }
     @Override
     protected String[] getServletMappings() {

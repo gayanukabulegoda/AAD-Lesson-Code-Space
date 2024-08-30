@@ -4,10 +4,10 @@ import lk.ijse.notetaker.dto.NoteDTO;
 
 import java.util.List;
 
-public sealed interface NoteService permits NoteServiceImpl {
+public interface NoteService {
     String saveNote(NoteDTO noteDTO);
-    void updateNote(String id, NoteDTO noteDTO);
-    void deleteNote(String id);
-    NoteDTO getSelectedNote(String id);
+    void updateNote(String noteId,NoteDTO noteDTO);
+    void deleteNote(String noteId);
+    NoteDTO getSelectedNote(String noteId);
     List<NoteDTO> getAllNotes();
 }
