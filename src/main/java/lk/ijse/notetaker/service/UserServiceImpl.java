@@ -2,6 +2,7 @@ package lk.ijse.notetaker.service;
 
 import lk.ijse.notetaker.dto.UserDTO;
 import lk.ijse.notetaker.repository.UserRepository;
+import lk.ijse.notetaker.util.AppUtil;
 import lk.ijse.notetaker.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String saveUser(UserDTO userDTO) {
-        return "";
+        userDTO.setUserId(AppUtil.createUserId());
+        userRepository.save(mapping.convertToUserEntity(userDTO));
+        return "User Saved Successfully";
     }
 
     @Override
