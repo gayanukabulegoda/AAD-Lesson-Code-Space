@@ -18,7 +18,11 @@ public class NoteController {
     @Autowired
     private final NoteService noteService;
 
-    //ToDo: CRUD of the Note
+    @GetMapping("/health")
+    public String healthCheck() {
+        return "NoteController is Running";
+    }
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createNote(@RequestBody NoteDTO noteDTO) {
         var isSaved = noteService.saveNote(noteDTO);
@@ -35,15 +39,15 @@ public class NoteController {
         return noteService.getSelectedNote(noteId);
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping(value = "/{noteId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void updateNote(@PathVariable ("noteId") String noteId, @RequestBody NoteDTO noteDTO) {
-        noteService.updateNote(noteId, noteDTO);
+    public ResponseEntity<String> updateNote(@PathVariable ("noteId") String noteId, @RequestBody NoteDTO noteDTO) {
+        return noteService.updateNote(noteId, noteDTO) ?
+                new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value = "/{noteId}")
-    public void deleteNote(@PathVariable ("noteId") String noteId) {
-        noteService.deleteNote(noteId);
+    public ResponseEntity<String> deleteNote(@PathVariable ("noteId") String noteId) {
+        return noteService.deleteNote(noteId) ?
+                new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }

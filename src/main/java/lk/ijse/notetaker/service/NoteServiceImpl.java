@@ -1,6 +1,7 @@
 package lk.ijse.notetaker.service;
 
 import jakarta.transaction.Transactional;
+import lk.ijse.notetaker.entity.NoteEntity;
 import lk.ijse.notetaker.repository.NoteRepository;
 import lk.ijse.notetaker.dto.NoteDTO;
 import lk.ijse.notetaker.util.AppUtil;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -25,25 +27,41 @@ public class NoteServiceImpl implements NoteService {
     @Override
     public String saveNote(NoteDTO noteDTO) {
         noteDTO.setId(AppUtil.createNoteId());
-        noteRepository.save(mapping.convertToEntity(noteDTO));
+        noteRepository.save(mapping.convertTNoteEntity(noteDTO));
         return "NoteDTO Saved Successfully";
     }
 
     @Override
-    public void updateNote(String id, NoteDTO incomingNoteDTO) {
+    public boolean updateNote(String id, NoteDTO incomingNoteDTO) {
+        Optional<NoteEntity> tmpNoteEntity = noteRepository.findById(id);
+        if (!tmpNoteEntity.isPresent()) {
+            return false;
+        } else {
+            tmpNoteEntity.get().setNoteDesc(incomingNoteDTO.getNoteDesc());
+            tmpNoteEntity.get().setNoteTitle(incomingNoteDTO.getNoteTitle());
+            tmpNoteEntity.get().setPriorityLevel(incomingNoteDTO.getPriorityLevel());
+            tmpNoteEntity.get().setCreateDate(incomingNoteDTO.getCreateDate());
+            return true;
+        }
     }
 
     @Override
-    public void deleteNote(String id) {
+    public boolean deleteNote(String id) {
+        if (noteRepository.existsById(id)) {
+            noteRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public NoteDTO getSelectedNote(String id) {
-        return null;
+        return mapping.convertToNoteDTO(noteRepository.getReferenceById(id));
     }
 
     @Override
     public List<NoteDTO> getAllNotes() {
-        return null;
+        return mapping.convertToNoteDTO(noteRepository.findAll());
     }
 }
