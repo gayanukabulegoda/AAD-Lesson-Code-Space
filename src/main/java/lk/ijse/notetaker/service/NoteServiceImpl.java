@@ -1,9 +1,12 @@
 package lk.ijse.notetaker.service;
 
 import jakarta.transaction.Transactional;
+import lk.ijse.notetaker.customObj.NoteErrorResponse;
+import lk.ijse.notetaker.customObj.NoteResponse;
 import lk.ijse.notetaker.entity.NoteEntity;
+import lk.ijse.notetaker.exception.NoteNotFoundException;
 import lk.ijse.notetaker.repository.NoteRepository;
-import lk.ijse.notetaker.dto.NoteDTO;
+import lk.ijse.notetaker.dto.impl.NoteDTO;
 import lk.ijse.notetaker.util.AppUtil;
 import lk.ijse.notetaker.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,32 +35,31 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public boolean updateNote(String id, NoteDTO incomingNoteDTO) {
+    public void updateNote(String id, NoteDTO incomingNoteDTO) {
         Optional<NoteEntity> tmpNoteEntity = noteRepository.findById(id);
         if (!tmpNoteEntity.isPresent()) {
-            return false;
+            throw new NoteNotFoundException("Note Not Found");
         } else {
             tmpNoteEntity.get().setNoteDesc(incomingNoteDTO.getNoteDesc());
             tmpNoteEntity.get().setNoteTitle(incomingNoteDTO.getNoteTitle());
             tmpNoteEntity.get().setPriorityLevel(incomingNoteDTO.getPriorityLevel());
             tmpNoteEntity.get().setCreateDate(incomingNoteDTO.getCreateDate());
-            return true;
         }
     }
 
     @Override
-    public boolean deleteNote(String id) {
-        if (noteRepository.existsById(id)) {
-            noteRepository.deleteById(id);
-            return true;
-        } else {
-            return false;
-        }
+    public void deleteNote(String id) {
+        Optional<NoteEntity> selectedNote = noteRepository.findById(id);
+        if (!selectedNote.isPresent()) {
+            throw new NoteNotFoundException("Note Not Found");
+        } else noteRepository.deleteById(id);
     }
 
     @Override
-    public NoteDTO getSelectedNote(String id) {
-        return mapping.convertToNoteDTO(noteRepository.getReferenceById(id));
+    public NoteResponse getSelectedNote(String id) {
+        return (noteRepository.existsById(id))
+                ? mapping.convertToNoteDTO(noteRepository.getReferenceById(id))
+                : new NoteErrorResponse(0, "Note Not Found");
     }
 
     @Override

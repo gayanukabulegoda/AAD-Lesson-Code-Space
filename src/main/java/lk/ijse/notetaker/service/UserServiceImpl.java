@@ -1,7 +1,10 @@
 package lk.ijse.notetaker.service;
 
-import lk.ijse.notetaker.dto.UserDTO;
+import lk.ijse.notetaker.customObj.UserErrorResponse;
+import lk.ijse.notetaker.customObj.UserResponse;
+import lk.ijse.notetaker.dto.impl.UserDTO;
 import lk.ijse.notetaker.entity.UserEntity;
+import lk.ijse.notetaker.exception.DataPersistFailedException;
 import lk.ijse.notetaker.exception.UserNotFoundException;
 import lk.ijse.notetaker.repository.UserRepository;
 import lk.ijse.notetaker.util.AppUtil;
@@ -26,18 +29,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String saveUser(UserDTO userDTO) {
+    public void saveUser(UserDTO userDTO) {
         userDTO.setUserId(AppUtil.createUserId());
         UserEntity savedUser = userRepository.save(mapping.convertToUserEntity(userDTO));
-        return (savedUser != null && savedUser.getUserId() != null)
-                ? "User Saved Successfully"
-                : "User Save Failed";
+        if (savedUser == null && savedUser.getUserId() == null) {
+            throw new DataPersistFailedException("User not saved");
+        }
     }
 
     @Override
     public void updateUser(UserDTO userDTO) {
         Optional<UserEntity> tmpUser = userRepository.findById(userDTO.getUserId());
-        if (!tmpUser.isPresent()) throw new UserNotFoundException();
+        if (!tmpUser.isPresent()) throw new UserNotFoundException("User not found");
         else {
             UserEntity userEntity = tmpUser.get();
             userEntity.setFirstName(userDTO.getFirstName());
@@ -50,25 +53,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean deleteUser(String userId) {
-        if (!userRepository.existsById(userId)) {
-            throw new UserNotFoundException();
-        } else {
-            userRepository.deleteById(userId);
-            return true;
-        }
+    public void deleteUser(String userId) {
+        Optional<UserEntity> selectedUser = userRepository.findById(userId);
+        if (!selectedUser.isPresent()) {
+            throw new UserNotFoundException("User not found");
+        } else userRepository.deleteById(userId);
     }
 
     @Override
-    public UserDTO getSelectedUser(String userId) {
-//        if (userRepository.existsById(userId)) {
-//            return mapping.convertToUserDTO(userRepository.getReferenceById(userId));
-//        } else return null;
-
+    public UserResponse getSelectedUser(String userId) {
         // using the custom method getUserEntitiesByUserId from the UserRepository
         return (userRepository.existsById(userId))
-                ? mapping.convertToUserDTO(userRepository.getUserEntitiesByUserId(userId))
-                : null;
+                ? mapping.convertToUserDTO(userRepository.getUserEntityByUserId(userId))
+                : new UserErrorResponse(0, "User not found");
     }
 
     @Override
