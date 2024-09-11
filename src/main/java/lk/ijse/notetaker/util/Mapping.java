@@ -5,6 +5,7 @@ import lk.ijse.notetaker.dto.UserDTO;
 import lk.ijse.notetaker.entity.NoteEntity;
 import lk.ijse.notetaker.entity.UserEntity;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +24,7 @@ public class Mapping {
         return modelMapper.map(noteDTO, NoteEntity.class);
     }
     public List<NoteDTO> convertToNoteDTO(List<NoteEntity> notes) {
-        return modelMapper.map(notes, List.class);
+        return modelMapper.map(notes, new TypeToken<List<NoteDTO>>() {}.getType());
     }
 
     // matters of userEntity and DTO
@@ -34,6 +35,6 @@ public class Mapping {
         return modelMapper.map(userDTO, UserEntity.class);
     }
     public List<UserDTO> convertToUserDTO(List<UserEntity> users) {
-        return modelMapper.map(users, List.class);
+        return modelMapper.map(users, new TypeToken<List<UserDTO>>() {}.getType());
     }
 }
