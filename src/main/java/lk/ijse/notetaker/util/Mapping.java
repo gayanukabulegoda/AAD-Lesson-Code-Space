@@ -1,7 +1,7 @@
 package lk.ijse.notetaker.util;
 
-import lk.ijse.notetaker.dto.NoteDTO;
-import lk.ijse.notetaker.dto.UserDTO;
+import lk.ijse.notetaker.dto.impl.NoteDTO;
+import lk.ijse.notetaker.dto.impl.UserDTO;
 import lk.ijse.notetaker.entity.NoteEntity;
 import lk.ijse.notetaker.entity.UserEntity;
 import org.modelmapper.ModelMapper;
@@ -15,7 +15,6 @@ import java.util.List;
 public class Mapping {
     @Autowired
     private ModelMapper modelMapper;
-
     // matters of noteEntity and DTO
     public NoteDTO convertToNoteDTO(NoteEntity noteEntity) {
         return modelMapper.map(noteEntity, NoteDTO.class);
@@ -26,7 +25,6 @@ public class Mapping {
     public List<NoteDTO> convertToNoteDTO(List<NoteEntity> notes) {
         return modelMapper.map(notes, new TypeToken<List<NoteDTO>>() {}.getType());
     }
-
     // matters of userEntity and DTO
     public UserDTO convertToUserDTO(UserEntity userEntity) {
         return modelMapper.map(userEntity, UserDTO.class);
