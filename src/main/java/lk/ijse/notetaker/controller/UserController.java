@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -19,18 +20,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("health")
-    public String healthCheck() {
-        return "UserController is Running";
-    }
-
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> saveUser(
             @RequestPart("firstname") String firstName,
             @RequestPart("lastName") String lastName,
             @RequestPart("email") String email,
             @RequestPart("password") String password,
-            @RequestPart("profilePic") String profilePic
+            @RequestPart("profilePic") MultipartFile profilePic
     ) {
         try {
             // Handle profile picture
@@ -81,7 +77,7 @@ public class UserController {
             @RequestPart("updateLastName") String updateLastName,
             @RequestPart("updateEmail") String updateEmail,
             @RequestPart("updatePassword") String updatePassword,
-            @RequestPart("updateProfilePic") String updateProfilePic
+            @RequestPart("updateProfilePic") MultipartFile updateProfilePic
     ) {
         try {
             String base64ProfilePic = AppUtil.toBase64ProfilePic(updateProfilePic);

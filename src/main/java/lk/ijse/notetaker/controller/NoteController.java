@@ -1,6 +1,7 @@
 package lk.ijse.notetaker.controller;
 
 import lk.ijse.notetaker.customObj.NoteResponse;
+import lk.ijse.notetaker.exception.DataPersistFailedException;
 import lk.ijse.notetaker.exception.NoteNotFoundException;
 import lk.ijse.notetaker.exception.UserNotFoundException;
 import lk.ijse.notetaker.service.NoteService;
@@ -21,15 +22,20 @@ public class NoteController {
     @Autowired
     private final NoteService noteService;
 
-    @GetMapping("/health")
-    public String healthCheck() {
-        return "NoteController is Running";
-    }
-
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> createNote(@RequestBody NoteDTO noteDTO) {
-        var isSaved = noteService.saveNote(noteDTO);
-        return ResponseEntity.ok(isSaved);
+    @PostMapping(value = "/{userId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> createNote(@PathVariable("userId") String userId, @RequestBody NoteDTO noteDTO) {
+        if (noteDTO == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } else {
+            try {
+                noteService.saveNote(userId, noteDTO);
+                return new ResponseEntity<>(HttpStatus.CREATED);
+            } catch (DataPersistFailedException e) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
     }
 
     @GetMapping(value ="allNotes", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -38,13 +44,16 @@ public class NoteController {
     }
 
     @GetMapping(value = "/{noteId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public NoteResponse getNote(@PathVariable("noteId") String noteId) {
+    public NoteResponse getSelectedNote(@PathVariable("noteId") String noteId) {
         return noteService.getSelectedNote(noteId);
     }
 
     @PatchMapping(value = "/{noteId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateNote(@PathVariable ("noteId") String noteId, @RequestBody NoteDTO noteDTO) {
         try {
+            if (noteDTO == null && (noteId == null || noteDTO.equals(""))) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
             noteService.updateNote(noteId, noteDTO);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (NoteNotFoundException e) {
