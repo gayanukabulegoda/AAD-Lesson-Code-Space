@@ -1,0 +1,19 @@
+spring:
+  # DB Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/noteTaker?createDatabaseIfNotExist=true
+    username: root
+    password: Ijse@1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # Hibernate Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true # Format the SQL queries
+
+server:
+  port: 5055
