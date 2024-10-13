@@ -3,7 +3,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/noteTaker?createDatabaseIfNotExist=true
     username: root
-    password: Ijse@1234
+    password: grb1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   # Hibernate Configuration
   jpa:
@@ -14,6 +14,12 @@ spring:
     properties:
       hibernate:
         format_sql: true # Format the SQL queries
+  # Basic Authentication
+  security:
+    user:
+      name: abc
+      password: 12345
+      roles: ADMIN
 
 server:
   port: 5055
