@@ -10,6 +10,7 @@ import lk.ijse.SpringBootNoteTaker.repository.UserRepository;
 import lk.ijse.SpringBootNoteTaker.util.AppUtil;
 import lk.ijse.SpringBootNoteTaker.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,14 +63,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse getSelectedUser(String userId) {
-        // using the custom method getUserEntitiesByUserId from the UserRepository
         return (userRepository.existsById(userId))
-                ? mapping.convertToUserDTO(userRepository.getUserEntityByUserId(userId))
+                ? mapping.convertToUserDTO(userRepository.getReferenceById(userId))
                 : new UserErrorResponse(0, "User not found");
     }
 
     @Override
     public List<UserDTO> getAllUsers() {
         return mapping.convertToUserDTO(userRepository.findAll());
+    }
+
+    @Override
+    public UserDetailsService userDetailsService() {
+        return email ->
+                userRepository.findByEmail(email)
+                        .orElseThrow(() -> new UserNotFoundException("User not found"));
     }
 }

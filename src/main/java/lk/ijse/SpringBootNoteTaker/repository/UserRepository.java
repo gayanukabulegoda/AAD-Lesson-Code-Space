@@ -4,8 +4,9 @@ import lk.ijse.SpringBootNoteTaker.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, String> {
-    // This method is used to get the user entity by the user id (created by the spring data jpa)
-    UserEntity getUserEntityByUserId(String userId);
+    Optional<UserEntity> findByEmail(String userId);
 }

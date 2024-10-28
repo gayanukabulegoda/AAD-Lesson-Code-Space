@@ -5,10 +5,11 @@ import lk.ijse.SpringBootNoteTaker.dto.impl.UserDTO;
 import lk.ijse.SpringBootNoteTaker.exception.UserNotFoundException;
 import lk.ijse.SpringBootNoteTaker.service.UserService;
 import lk.ijse.SpringBootNoteTaker.util.AppUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,37 +17,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/user")
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired
-    private UserService userService;
-
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Void> saveUser(
-            @RequestPart("firstname") String firstName,
-            @RequestPart("lastName") String lastName,
-            @RequestPart("email") String email,
-            @RequestPart("password") String password,
-            @RequestPart("profilePic") MultipartFile profilePic
-    ) {
-        try {
-            // Handle profile picture
-            String base64ProfilePic = AppUtil.toBase64ProfilePic(profilePic);
-            // Build the user object
-            UserDTO buildUserDTO = new UserDTO();
-            buildUserDTO.setFirstName(firstName);
-            buildUserDTO.setLastName(lastName);
-            buildUserDTO.setEmail(email);
-            buildUserDTO.setPassword(password);
-            buildUserDTO.setProfilePic(base64ProfilePic);
-            // Send to the service layer
-            userService.saveUser(buildUserDTO);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (UserNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+    private final UserService userService;
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") String userId) {
@@ -65,6 +38,7 @@ public class UserController {
         return userService.getSelectedUser(userId);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
