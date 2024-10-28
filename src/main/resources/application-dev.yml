@@ -15,11 +15,16 @@ spring:
       hibernate:
         format_sql: true # Format the SQL queries
   # Basic Authentication
-    security:
-      user:
-        name: Grb
-        password: 1234
-        roles: ADMIN
+  security:
+    user:
+      name: Grb
+      password: 1234
+      roles: ADMIN
 
+# Server Configuration
 server:
   port: 5055
+
+# JWTKey
+token:
+  key: 5297e8283409819a965da98ccae71bc567370a465121a7717757293d495476a7726a1f9687c3eae8ea5a0ccbd70d01e5272004c50d7d1b0e70f88ab9a28a3ed1e8a242443341ce7e8235b43b4
